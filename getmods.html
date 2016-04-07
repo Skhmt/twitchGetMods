@@ -119,6 +119,26 @@
 		output += '</table>';
 
 		$('#output').html( output );
+		outputNotMods();
+	}
+	
+	function outputNotMods() {
+		var output = '<h3>You are a NOT moderator for these channels:</h3><table>' +
+			'<tr><th>Channel</th><th>Partner</th><th>Followed</th><th>Last Stream</th><th>Followers</th></tr>';
+		for (var i = 0; i < channels.length; i++) {
+			if ( !(channels[i].mod) ) {
+				output += '<tr>' +
+					'<td><a href="https://www.twitch.tv/' + channels[i].channel + '/">' + channels[i].channel + '</a></td>' +
+					'<td>' + channels[i].partner + '</td>' +
+					'<td>' + (new Date(channels[i].followTime)).toLocaleDateString() + '</td>' +
+					'<td>' + (new Date(channels[i].lastStreamTime)).toLocaleDateString() + '</td>' +
+					'<td>' + channels[i].followers + '</td>' +
+					'</tr>';
+			}
+		}
+		output += '</table>';
+
+		$('#output').html( output );
 	}
 </script>
 
