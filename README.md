@@ -1,6 +1,6 @@
 # skhmt.github.io / getmods
 
-Uses twapi.js
+Uses tapic.s
 
 Gets all the channels you moderate
 
